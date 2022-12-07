@@ -1,0 +1,74 @@
+class Ticket:
+    ticketlist = list()
+    def __init__(self,  ticket_number, staff_id, name,  email, issue, response, ticket_status):
+        self.ticket_number = ticket_number
+        self.staff_id = staff_id
+        self.name = name
+        self.email = email
+        self.issue = issue
+        self.response = response
+        self.ticket_status = ticket_status
+    def addnewticket(self):
+        Ticket.ticketlist.append(self)
+    def getticklist(self):
+        return Ticket.ticketlist
+    def gettickbyid(self, ticket_number):
+        for tick in Ticket.ticketlist:
+            if(tick.getticket_number() == ticket_number):
+                return tick
+        return False
+    def updatetickbyid(self, response, ticket_status):
+        for tick in Ticket.ticketlist:
+            if(tick.getticket_number() == ticket_number):
+                tick.response, tick.ticket_status = response, ticket_status
+                return True
+        return False
+    def removetickbyid(self, ticket_number):
+        for tick in Ticket.ticketlist:
+            if(tick.getticket_number() == ticket_number):
+                Ticket.ticketlist.remove(tick)
+                return True
+        return False
+    def setticket_number(self, ticket_number):
+        self.ticket_number = ticket_number
+
+    def getticket_number(self):
+        return self.ticket_number
+
+    def setstaff_id(self, staff_id):
+        self.staff_id = staff_id
+
+    def getstaff_id(self):
+        return self.staff_id
+
+    def setname(self, name):
+        self.name = name
+
+    def getname(self):
+        return self.name
+
+    def setemail(self, email):
+        self.email = email
+
+    def getemail(self):
+        return self.email
+
+    def setissue(self, issue):
+        self.issue = issue
+
+    def getissue(self):
+        return self.issue
+
+    def setresponse(self, response):
+        self.response = response
+
+    def getresponse(self):
+        return self.response
+
+    def setticket_status(self, ticket_status):
+        self.ticket_status = ticket_status
+
+    def getticket_status(self):
+        return self.ticket_status
+    def __str__(self):
+        return "%s %s %s %s %s %s %s"%(self.ticket_number, self.staff_id, self.name, self.email, self.issue, self.response, self.ticket_status)
