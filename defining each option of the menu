@@ -1,0 +1,50 @@
+if (choice == 1):
+        ticket_number = input("Enter your Ticket number: ")
+        staff_id = input("Enter your staff ID: ")
+        name = input("Enter your name: ")
+        email = input("Enter your email: ")
+        issue = input("Describe your problem if require password change just type >> change password]: ")
+
+        if issue.lower() == "change password":
+            a = staff_id[0:2]
+            b = name[0:3]
+            c = a + b
+            response = "your new password: " + c
+            ticket_status = "closed"
+            print("Ticket submitted...")
+        else:
+            response = "not yet provided"
+            ticket_status = "open"
+            print("Ticket submitted...")
+
+        tick = Ticket(ticket_number, staff_id, name, email, issue, response, ticket_status)
+        tick.addnewticket()
+
+
+    elif(choice == 2):
+        print("\n")
+        for tick in ticket.getticklist():
+            print(tick)
+    elif(choice == 3):
+        ticket_number = input("enter your ticket number: ")
+        tick = ticket.gettickbyid(ticket_number)
+        if(tick == False):
+            print("\nsorry ticket not  found: ",ticket_number)
+        else:
+            print(tick)
+    elif(choice == 4):
+        ticket_number = input("enter your ticket number: ")
+        response = input(" enter your new response: ")
+        ticket_status = "closed"
+        tick = ticket.updatetickbyid( response, ticket_status)
+        if(tick == False):
+            print("\nsorry update failed for: ",ticket_number)
+        else:
+            print("Successfully Updated: ",ticket_number)
+    elif(choice == 5):
+        ticket_number = input("enter your ticket number: ")
+        tick = ticket.removetickbyid(ticket_number)
+        if(tick == False):
+            print("\nsorry cannot delete: ", ticket_number)
+        else:
+            print("Successfully deleted: ", ticket_number)
