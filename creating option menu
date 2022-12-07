@@ -1,0 +1,5 @@
+choice = 1
+ticket = Ticket("","","","","","","")
+while choice >=1 and choice <=6:
+    print("\n\n1. Submit Help DEsk Ticket\n2. Show all tickets\n3. Re_open resolved ticket\n4. Respond to ticket by number\n5. remove ticket\n6. Show ticket status\n")
+    choice = int(input("enter your choice: "))
